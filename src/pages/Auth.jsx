@@ -3,12 +3,12 @@ import '../styles/Auth.css';
 import Login from '../components/Login';
 import Register from '../components/Register';
 import { useNavigate } from 'react-router-dom';
-
+import { Context } from '../main';
 const Auth = () => {
   const { isAuthenticated } = useContext(Context);
-  const { isLogin, setIsLogin } = useState(true);
+  const [isLogin, setIsLogin] = useState(true);
   const navigateTo = useNavigate();
-  
+
   if (isAuthenticated) {
     navigateTo('/');
   }

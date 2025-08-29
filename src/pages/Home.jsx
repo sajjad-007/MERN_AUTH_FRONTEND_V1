@@ -10,8 +10,10 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import Footer from '../layout/Footer';
 
 const Home = () => {
-  const [isAuthenticated, setIsAuthenticated, setUser] = useContext(Context);
-  return <></>;
+  // const [isAuthenticated, setIsAuthenticated, setUser] = useContext(Context);
+  return <>
+    <h1>hello buddy</h1>
+  </>;
 };
 
 export default Home;
