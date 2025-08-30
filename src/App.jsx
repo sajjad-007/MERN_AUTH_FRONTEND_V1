@@ -25,7 +25,7 @@ const App = () => {
           <Route path="/password/forgot" element={<ForgotPassword />} />
           <Route path="/password/reset/:token" element={<ResetPassword />} />
         </Routes>
-        <ToastContainer theme="light"  />
+        <ToastContainer theme="light" />
       </Router>
     </>
   );

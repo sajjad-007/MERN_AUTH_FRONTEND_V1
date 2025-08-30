@@ -12,7 +12,7 @@
   padding: 30px 20px;
   border-radius: 12px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  max-width: 400px;
+  max-width: 460px;
   width: 100%;
 }
 
@@ -54,6 +54,7 @@
 
 .verify-button {
   background: #0cbb69;
+  text-transform: uppercase;
   color: #fff;
   font-size: 1rem;
   padding: 12px 20px;
@@ -66,4 +67,5 @@
 
 .verify-button:hover {
   background: #068047;
+  text-transform: uppercase;
 }

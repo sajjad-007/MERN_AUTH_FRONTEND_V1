@@ -14,12 +14,16 @@ const Register = () => {
     isLoading,
     setIsLoading,
   } = useContext(Context);
+
+  const navigateTo = useNavigate();
+
   const {
     handleSubmit,
     register,
     reset,
     formState: { errors },
   } = useForm();
+
   const handleRegister = async data => {
     setIsLoading(true);
     data.phoneNumber = `+880${data.phoneNumber}`;
@@ -34,10 +38,16 @@ const Register = () => {
           },
         }
       );
+      console.log(response.data);
       toast.success(response.data.message);
-      // setUser(response.data.user);
+      navigateTo(
+        `/otp-verification/${response.data.email}/${response?.data.phoneNumber}`
+      );
+      // console.log(response.data.phoneNumber);
     } catch (error) {
       toast.error(error.response.data.message);
+      console.error('Error from user registration', error);
+      setIsLoading;()
     } finally {
       setIsLoading(false);
       reset();
@@ -109,7 +119,7 @@ const Register = () => {
           </div>
         </div>
         {isLoading ? (
-          <button>Loading....</button>
+          <button>Please wait....</button>
         ) : (
           <button type="submit">Submit</button>
         )}
