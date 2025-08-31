@@ -12,7 +12,6 @@ const OtpVerification = () => {
   const {
     isAuthenticated,
     setIsAuthenticated,
-    user,
     setUser,
     isLoading,
     setIsLoading,
@@ -26,16 +25,27 @@ const OtpVerification = () => {
     newOTP[index] = value;
     setOtp(newOTP);
 
+    //value is whatever the user typed into the current box.
+    //index is the position of that box (0, 1, 2, ...).
+    //If the user typed something (value is not empty) and the box is not the last one, then focus moves to the next input box.
+    //Example => You type 5 in the first box (index = 0). Since it’s not the last box, the cursor automatically jumps to box 1.
     if (value && index < otp.length - 1) {
       document.getElementById(`otp-input-${index + 1}`).focus();
     }
   };
+
+  //e.key === "Backspace" means the user pressed the backspace key.
+  //otp[index] === "" means the current box is already empty.
+  //index > 0 ensures it’s not the very first box.
+  //If all that’s true, the cursor moves back to the previous box.
+  //👉 Example => You’re at box 2 (index = 2), it’s empty, and you press backspace. The focus jumps back to box 1.
   const handleOnKeyDown = (e, index) => {
     if (e.key === 'Backspace' && otp[index] === '' && index > 0) {
       document.getElementById(`otp-input-${index - 1}`).focus();
     }
   };
   const handleOtpVerification = async e => {
+    setIsLoading(true);
     setIsAuthenticated(false);
     e.preventDefault();
     const enteredOTP = otp.join('');
@@ -55,22 +65,24 @@ const OtpVerification = () => {
           },
         }
       );
-      
-        toast.success(response.data.message);
-        setUser(response.data)
-        setIsAuthenticated(true)
-      console.log(response);
+
+      toast.success(response.data.message);
+      setUser(response.data);
+      setIsAuthenticated(true);
     } catch (error) {
       toast.error(error.response.data.message);
       setUser(null);
       setIsAuthenticated(false);
       console.error('Error from otp-verification', error);
     } finally {
-      if (isAuthenticated) {
-        navigateTo('/');
-      }
+      setIsAuthenticated(true);
+      setIsLoading(false);
+      navigateTo('/');
     }
   };
+  if (isAuthenticated) {
+    navigateTo('/');
+  }
 
   return (
     <>

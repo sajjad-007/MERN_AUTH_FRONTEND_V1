@@ -38,21 +38,23 @@ const Register = () => {
           },
         }
       );
-      console.log(response.data);
-      toast.success(response.data.message);
+
+      toast.success(response?.data?.message);
       navigateTo(
         `/otp-verification/${response.data.email}/${response?.data.phoneNumber}`
       );
       // console.log(response.data.phoneNumber);
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error?.response?.data?.message);
       console.error('Error from user registration', error);
-      setIsLoading;()
     } finally {
       setIsLoading(false);
       reset();
     }
   };
+  if (isAuthenticated) {
+    navigateTo('/');
+  }
   return (
     <>
       <form
