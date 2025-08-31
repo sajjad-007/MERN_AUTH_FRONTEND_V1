@@ -52,9 +52,6 @@ const Register = () => {
       reset();
     }
   };
-  if (isAuthenticated) {
-    navigateTo('/');
-  }
   return (
     <>
       <form

@@ -13,6 +13,8 @@
   background: #0cbb69;
   color: #fff;
   transition: all 0.3s;
+  cursor: pointer;
+  text-transform: uppercase;
 }
 .home button:hover {
   background: #068047;

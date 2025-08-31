@@ -1,6 +1,7 @@
-import React from "react";
-import "../styles/Instructor.css";
-import instructorImage from "../assets/profile.png";
+import React, { useContext } from 'react';
+import '../styles/Instructor.css';
+import instructorImage from '../assets/profile.jpg';
+import { Context } from '../main';
 
 const Instructor = () => {
   return (
@@ -10,37 +11,33 @@ const Instructor = () => {
           <img src={instructorImage} alt="Instructor" />
         </div>
         <div className="instructor-info">
-          <h1>Muhammad Zeeshan Khan</h1>
-          <h4>Your Instructor</h4>
+          <h1>Sajjad Hossain</h1>
+          <h4>Author</h4>
           <p>
-            Hello! I'm Muhammad Zeeshan Khan, a passionate MERN stack developer
-            with a love for teaching and building scalable, robust applications.
-            With years of experience in JavaScript, React, Node.js, Express, and
-            MongoDB, I am dedicated to helping developers learn and grow their
-            skills. Join me in this journey to master authentication and the
-            MERN stack!
+            Hi there, I'm Sajjad I am a MERN Stack Developer with experience
+            building scalable, full-stack web applications using MongoDB,
+            Express.js, React, and Node.js. I specialize in designing RESTful
+            APIs, developing responsive front-end interfaces, and integrating
+            secure authentication and database solutions. My focus is on writing
+            clean, maintainable code and delivering efficient solutions that
+            improve user experience. I enjoy working on real-world projects,
+            solving technical problems, and continuously learning modern web
+            technologies to sharpen my skills.
           </p>
           <div className="social-links">
             <a
-              href="https://github.com/Zeeshu911"
+              href="https://github.com/sajjad-007"
               target="_blank"
               rel="noopener noreferrer"
             >
               GitHub
             </a>
             <a
-              href="https://www.linkedin.com/in/muhammad-zeeshan-khan-dev/"
+              href="https://sajjad-portfolioo.netlify.app/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              LinkedIn
-            </a>
-            <a
-              href="https://www.youtube.com/channel/UCbGtkGZ9sDg54PtU3GEDE6w"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Youtube
+              Portfolio
             </a>
           </div>
         </div>

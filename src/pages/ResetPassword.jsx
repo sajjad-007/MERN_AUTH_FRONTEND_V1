@@ -50,7 +50,7 @@ const ResetPassword = () => {
       });
   };
   if (isAuthenticated) {
-    navigateTo('/auth');
+    navigateTo('/');
   }
   return (
     <>

@@ -26,7 +26,7 @@ const OtpVerification = () => {
     setOtp(newOTP);
 
     //value is whatever the user typed into the current box.
-    //index is the position of that box (0, 1, 2, ...).
+    //index is the position of that box (0, 1, 2, ...)
     //If the user typed something (value is not empty) and the box is not the last one, then focus moves to the next input box.
     //Example => You type 5 in the first box (index = 0). Since it’s not the last box, the cursor automatically jumps to box 1.
     if (value && index < otp.length - 1) {
